@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add To cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../css/addcart.css">
+</head>
+
+<body class = "container-fluid">
+<div class="row">
+    <div style="margin-left: 30%;margin-top: 10%">
+    <label for="items">Select Item</label>
+    <input type="text" class="bs-example" name = "items" id="items" list= "itemList"/>
+        <datalist id ="itemList">
+            <option>Gehu</option>
+            <option>Bajara</option>
+        </datalist>
+
+    <input type="submit" name="submit" id="addcart" value= "Add Cart" onclick="getitem()">
+</div>
+</div>    
+</body>
+<script src="../js/libs/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/buysale.js"></script>
+</html>
