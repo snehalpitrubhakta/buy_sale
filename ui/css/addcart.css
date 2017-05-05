@@ -2,9 +2,14 @@ body{
 background-image: url("../images/wheat.jpg");
 background-size: 100%;
 font-size: 175%;
+color: red;
 }
 
 .btn-space {
     margin-right: 35px;
 }
 
+.panel.panel-primary{
+    background-color: rgba(245, 245, 245, 0);
+    border: none;
+}
