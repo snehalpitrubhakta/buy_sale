@@ -6,27 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add To cart</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="../css/addcart.css">
 </head>
 
-<body class = "container-fluid">
-<div class="row">
-    <div style="margin-left: 30%;margin-top: 10%">
-    <label for="items">Select Item</label>
-    <input type="text" class="bs-example" name = "items" id="items" list= "itemList"/>
-        <datalist id ="itemList">
-            <option>Gehu</option>
-            <option>Bajara</option>
-        </datalist>
-
-    <input type="submit" name="submit" id="addcart" value= "Add Cart" onclick="getitem()">
+<body class = "container">
+    <!--<div style="margin-left: 30%;margin-top: 10%">-->
+    <div id="itemSelection" style="margin-top: 50px;" class="panel panel-primary">
+    <div class ="panel-heading centered"><h4>Item Selection</h4></div>
+        <div clas="panel-body">
+        <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+        
+            <label for="items">Select Item</label>
+            <select id="items" name="items" class="form-control" >
+                <option>Gehu</option>
+                <option>Bajara</option>
+            </select><br>
+            <label for="quantity">Quantity</label>
+            <input type="text" class="form-control"  name="quantity" id="quantity" placeholder="Enter quantity in Kg"><br>
+            <label for="quality">Quality</label><br>
+            <input type="radio" name="quality"> High<br>
+            <input type="radio" name="quality"> Medium<br>
+            <input type="radio" name="quality"> Low<br><br>
+            <input type="submit" class="btn btn-space btn-success" name="addcart" id="addcart" value= "Add Cart" onclick="addcart()">
+            <input type="submit" class="btn btn-space btn-success" name="buynow" id=" buynow" value= "Buy Now" onclick="buyNow()">
+        </div>
+        </div>
 </div>
-</div>    
-</body>
+        <div id="buyNow" style="margin-top: 50px;" class="panel panel-primary">
+            <div class="panel-heading middle"><h4>Payment Type</h4></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-2">
+                            <button type="button" class="btn btn-space btn-success btn-lg" name="cod" id="cod"> Cash on Delivery</button>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <button type="button" class="btn btn-space btn-success btn-lg" name="credit" id="credit">Credit/Debit/ATM card</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 <script src="../js/libs/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/libs/bootstrap.min.js"></script>
 <script src="../js/buysale.js"></script>
+</body>
 </html>
