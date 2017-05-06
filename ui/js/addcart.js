@@ -1,0 +1,27 @@
+$(document).ready(function(){
+	$("#addressOption").hide();
+	$("#add").hide();	
+	$("#addcart").click(function(){
+		$("#itemSelection").hide();
+		$("#addressOption").show();	
+	});
+	$("#back2").click(function(){
+		$("#addressOption").hide();		
+		$("#itemSelection").show();		
+	});
+	$("#cod").click(function(){
+		$("#paymentOptions").hide();
+		$("#add").show();
+	});
+	$("#back3").click(function(){
+		$("#add").hide();		
+		$("#paymentOptions").show();		
+	});
+	$("#back1").click(function(){
+		$("#paymentOptions").hide();		
+		$("#itemSelection").show();		
+	});
+	$("#credit").click(function(){
+			
+	});
+});
