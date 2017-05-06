@@ -86,7 +86,23 @@
         </div>
 </div>
 <div id="card" style="margin-top: 50px;" class="panel panel-primary panel-transparent">
-	
+	<div class="panel-heading middle"><h4>Card Details</h4></div>
+        <div class="panel-body">
+            <div class="row">
+            	<div class="col-md-4 col-md-offset-1">
+		    		<label for="cardno">Card Number</label>
+            		<input type="text" class="form-control"  name="cardno" id="cardno" placeholder="Enter Card Number"><br>
+            		<label for="cardcvv">CVV Number</label>
+            		<input type="text" class="form-control"  name="cardcvv" id="cardcvv" placeholder="Enter CVV "><br>
+            		<label for="cardpin">PIN</label>
+            		<input type="text" class="form-control"  name="cardpin" id="cardpin" placeholder="Enter PIN "><br>
+            	</div>
+            	<div  class="col-md-8 col-md-offset-1">
+                	<button type="button" class="btn btn-space btn-info btn-md" name="back4" id="back4">Back</button>
+                	<button type="button" class="btn btn-space btn-info btn-md" name="next" id="next">Next</button>
+           		</div>
+            </div>
+        </div>   
 </div>
        
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -95,11 +111,5 @@
 <script src="../js/libs/bootstrap.min.js"></script>
 <script src="../js/buysale.js"></script>
 <script src="../js/addcart.js"></script>
-<script>
-function goBack() {
-    window.history.back();
-}
-</script>
-
 </body>
 </html>
