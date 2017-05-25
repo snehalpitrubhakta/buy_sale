@@ -20,9 +20,13 @@ $(document).ready(function(){
 					"Quantity":quantity,
 					"Quality":quality
 					}
-			console.log(requestObj);
-		
+			requestJSON = JSON.stringify(requestObj);
+			var url = "http://localhost:81/apiserver?query="+requestJSON;
+			PDP.callWithAjax("GET",url,"json",null,"Please wait...!!","Internal Error","application/json",window.renderResponse,self);
 			})
+			window.renderResponse = function(response, obj){
+					console.log(response);
+			};
 	})
 	
 	
