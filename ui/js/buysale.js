@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	console.log("grainType");
 	$("#paymentOptions").hide();
 	$("#itemSelection").show();
 
@@ -7,4 +6,19 @@ $(document).ready(function(){
 		$("#itemSelection").hide();
 		$("#paymentOptions").show();
 	});
+
+	$("#addcart").click(function(){
+		$("#cartmessage").text("Details added to cart.");
+	});
+
+	$("#addbtn").click(function(){
+		$("addressMessage").text("details are saved.");
+	});
+
+	$("#next").click(function(){
+		$("#itemSelection").hide();
+		$("#paymentOptions").hide();
+		$("#card").hide();
+		$("#add").show();
+	})
 });

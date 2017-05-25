@@ -32,6 +32,7 @@
             <input type="radio" name="quality" id="low" value="Low" > Low<br><br>
             <input type="submit" class="btn btn-space btn-success" name="addcart" id="addcart" value= "Add Cart">
             <input type="submit" class="btn btn-space btn-success" name="buy" id="buynow" value= "Buy Now">
+            <h4 id="cartmessage"></h4>
         </div>
         </div>
     </div>
@@ -55,21 +56,31 @@
 
 <div id="add" style="margin-top: 50px;" class="panel panel-primary panel-transparent">
 	<div class="panel-heading middle"><h4>Address</h4></div>
-        <div class="panel-body">
-            <div class="row">
-            	<div class="col-md-4 col-md-offset-1">
-            		<input type="text" class="form-control" style="height:60px;" name="add" id="add" placeholder="Enter address here.."><br>
-            	</div>
-            	<div class="col-md-4 col-md-offset-1">
-                    <button type="button" class="btn btn-space btn-success btn-lg" name="addbtn" id="addbtn"> Save Address</button>	
-                </div>
-                <div>
-                	<button type="button" class="btn btn-space btn-info btn-md" name="back3" id="back3">Back</button>
-           		</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <button type="button" class="btn btn-space btn-info btn-md" name="back3" id="back3">Back</button><br><br>
+            	<input type="text" class="form-control" style="height:60px;" name="add" id="add" placeholder="Enter address here..">
+                
             </div>
         </div>
+        <br>
+        <div class="row">
+            <div class= "col-md-4 col-md-offset-1">
+                <button type="button" class="btn btn-space btn-success btn-lg" name="addbtn" id="addbtn"> Save Address</button>	
+                <button type="button" class="btn btn-space btn-info btn-lg" style="float:right;" name="placeOrder" id= "placeOrder"> Place Order </button>
+            </div>
+        </div>
+
+        <br>
+        <div class= "col-md-4 col-md-offset-1">
+            <h4 id="addressMessage"></h4>  
+            
+        </div>     
+    </div>
 </div>
-<div id="addressOption" style="margin-top: 50px;" class="panel panel-primary panel-transparent">
+
+ <!--<div id="addressOption" style="margin-top: 50px;" class="panel panel-primary panel-transparent">
 	<div class="panel-heading middle"><h4>Address</h4></div>
         <div class="panel-body">
             <div class="row">
@@ -84,7 +95,7 @@
            		</div>
             </div>
         </div>
-</div>
+</div>-->
 <div id="card" style="margin-top: 50px;" class="panel panel-primary panel-transparent">
 	<div class="panel-heading middle"><h4>Card Details</h4></div>
         <div class="panel-body">

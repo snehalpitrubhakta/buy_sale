@@ -2,10 +2,10 @@ $(document).ready(function(){
 	$("#addressOption").hide();
 	$("#add").hide();
 	$("#card").hide();	
-	$("#addcart").click(function(){
+	/*$("#addcart").click(function(){
 		$("#itemSelection").hide();
 		$("#addressOption").show();	
-	});
+	});*/
 	$("#back2").click(function(){
 		$("#addressOption").hide();		
 		$("#itemSelection").show();		
@@ -18,8 +18,8 @@ $(document).ready(function(){
 	$("#back3").click(function(){
 		$("#add").hide();		
 		$("#paymentOptions").show();	
-		console.log(this.parent.id);
-		console.log("-----------------------");	
+		//console.log(this.parent.id);
+		//console.log("-----------------------");	
 	});
 	$("#back1").click(function(){
 		$("#paymentOptions").hide();		
