@@ -1,0 +1,11 @@
+{
+	"Port": 3306,
+	"DbConfig": {
+		"host": "localhost",
+		"port": 3306,
+		"user": "projectpdp",
+		"password": "pdp",
+		"dbname": "projectpdp"
+	},
+	"LogFile": "/home/shital/api.log"
+}

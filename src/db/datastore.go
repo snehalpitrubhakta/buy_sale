@@ -1,8 +1,7 @@
-package main
+package db
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"strconv"
 	"strings"
@@ -10,62 +9,37 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-type dbConfig struct {
-	Host     *string
-	Port     *int
-	User     *string
-	Password *string
-	DbName   *string
+type Cart_details struct {
+	UserName string
+	ItemName string
+	Quantity int64 `json:",string"`
+	Quality  string
+	Price    int64 `json:",string"`
 }
 
-func main() {
-	dbuser := "projectpdp"
-	password := "pdp"
-	port := 3306
-	dbName := "projectpdp"
-	dbInfo := strings.Join([]string{dbuser, ":", password, "@tcp(127.0.0.1", ":", strconv.Itoa(port), ")/", dbName}, "")
-	conn, err := sql.Open("mysql", dbInfo)
+func (detail *Cart_details) SaveToCart(conn *sql.DB) int64 {
+	username := detail.UserName
+	itemname := detail.ItemName
+	quantity := detail.Quantity
+	quality := detail.Quality
+	price := quantity * 30
+	var retVal int64 = 1
+	sqlStatement := strings.Join([]string{"INSERT INTO cart (username,itemname,quantity,quality,price) VALUES ('", username, "','", itemname, "',", strconv.FormatInt(quantity, 10), ",'", quality, "',", strconv.FormatInt(price, 10), ");"}, "")
+	_, err := conn.Exec(sqlStatement)
 	if err != nil {
-		panic(err.Error())
+		log.Fatal("%s", err)
+		retVal = 0
 	}
-	defer conn.Close()
-	//InsertUserData(conn, "shital", "shital@gmail.com", "2312", "8806686669", "jalgaon")
-	//InsertIntoSoldItems(conn, 1, "i1", "shital")
-	//InsertIntoCart(conn, "shital", "i2")
-	//InertIntoPaymentDetails(conn, "shital", "i2", "cod")
-
+	return retVal
 }
 
-func InsertUserData(conn *sql.DB, username string, email string, password string, phonenumber string, address string) {
-	stmt, err := conn.Prepare("insert into userdetails(username,email,password,phonenumber,address) values(?,?,?,?,?)")
-	if err != nil {
-		log.Fatal(err)
-	}
-	res, err := stmt.Exec(username, email, password, phonenumber, address)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(res)
-}
-
+/*
 func InsertIntoSoldItems(conn *sql.DB, orderid int, itemid string, username string) {
 	stmt, err := conn.Prepare("insert into solditems(orderid,itemid,username) values(?,?,?)")
 	if err != nil {
 		log.Fatal(err)
 	}
 	res, err := stmt.Exec(orderid, itemid, username)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(res)
-}
-
-func InsertIntoCart(conn *sql.DB, username string, itemid string) {
-	stmt, err := conn.Prepare("insert into cart(username,itemid) values(?,?)")
-	if err != nil {
-		log.Fatal(err)
-	}
-	res, err := stmt.Exec(username, itemid)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -83,3 +57,17 @@ func InertIntoPaymentDetails(conn *sql.DB, username string, itemid string, payme
 	}
 	fmt.Println(res)
 }
+
+/*
+func InsertUserData(conn *sql.DB, username string, email string, password string, phonenumber string, address string) {
+	stmt, err := conn.Prepare("insert into userdetails(username,email,password,phonenumber,address) values(?,?,?,?,?)")
+	if err != nil {
+		log.Fatal(err)
+	}
+	res, err := stmt.Exec(username, email, password, phonenumber, address)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(res)
+}
+*/
