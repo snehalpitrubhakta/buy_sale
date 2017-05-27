@@ -1,4 +1,5 @@
 drop table cart;
+drop table solditems;
 /*
 drop table paymentdetails;
 drop table itemdetails;
@@ -27,13 +28,13 @@ create table if not exists paymentdetails(
 	foreign key(itemid) references itemdetails(itemid),
 	foreign key(username) references userdetails(username)	
 );
-
+*/
 create table if not exists solditems(
-	orderid int,
-	itemid varchar(20) not null,
+	orderid int not null AUTO_INCREMENT,
 	username varchar(20) not null,
-	foreign key(itemid) references itemdetails(itemid),
-	foreign key(username) references userdetails(username),
+	itemname varchar(20) not null,
+	quantity varchar(10),
+	quality text check (quality in ('high','medium','low')),
+	address varchar(40) not null,
 	primary key(orderid)
-);
-*/	
+);	
