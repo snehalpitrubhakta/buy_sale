@@ -14,7 +14,7 @@ type Cart_details struct {
 	ItemName string
 	Quantity int64 `json:",string"`
 	Quality  string
-	Price    int64 `json:",string"`
+	Address  string
 }
 
 func (detail *Cart_details) SaveToCart(conn *sql.DB) int64 {
@@ -33,19 +33,23 @@ func (detail *Cart_details) SaveToCart(conn *sql.DB) int64 {
 	return retVal
 }
 
-/*
-func InsertIntoSoldItems(conn *sql.DB, orderid int, itemid string, username string) {
-	stmt, err := conn.Prepare("insert into solditems(orderid,itemid,username) values(?,?,?)")
+func (detail *Cart_details) InsertIntoSoldItems(conn *sql.DB) int64 {
+	username := detail.UserName
+	itemname := detail.ItemName
+	quantity := detail.Quantity
+	quality := detail.Quality
+	address := detail.Address
+	var retVal int64 = 1
+	sqlStatement := strings.Join([]string{"INSERT INTO solditems (username,itemname,quantity,quality,address) VALUES ('", username, "','", itemname, "',", strconv.FormatInt(quantity, 10), ",'", quality, "','", address, "');"}, "")
+	_, err := conn.Exec(sqlStatement)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("%s", err)
+		retVal = 0
 	}
-	res, err := stmt.Exec(orderid, itemid, username)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(res)
+	return retVal
 }
 
+/*
 func InertIntoPaymentDetails(conn *sql.DB, username string, itemid string, paymentType string) {
 	stmt, err := conn.Prepare("insert into paymentdetails(username,itemid,paymenttype) values(?,?,?)")
 	if err != nil {
